@@ -9,7 +9,7 @@ git submodule init
 git submodule sync
 git submodule update
 
-set -e 
+set -e
 cd `dirname $0`
 
 if [ ! -e buildroot/.config ]
@@ -29,5 +29,6 @@ else
 	echo "USING EXISTING BUILDROOT CONFIG"
 	echo "To force update, delete .config or make changes using make menuconfig and build again."
 	make -C buildroot BR2_EXTERNAL=${EXTERNAL_REL_BUILDROOT}
+	# make -C buildroot defconfig BR2_EXTERNAL=${EXTERNAL_REL_BUILDROOT} BR2_DEFCONFIG=${AESD_MODIFIED_DEFCONFIG_REL_BUILDROOT}
 
 fi

@@ -2,7 +2,7 @@
 #!/bin/sh
 
 KERNEL="buildroot/output/images/Image"
-DTB="buildroot/output/images/bcm2710-rpi-3-b.dtb" 
+DTB="buildroot/output/images/bcm2710-rpi-3-b.dtb"
 ROOTFS="buildroot/output/images/rootfs.ext2"
 
 if [ ! -e $KERNEL ]
@@ -32,3 +32,7 @@ qemu-system-aarch64 \
 	-append "rw console=ttyAMA0,115200 root=/dev/mmcblk0 fsck.repair=yes rootwait" \
 	-device sd-card,drive=mycard -drive if=none,file=$ROOTFS,format=raw,id=mycard
 
+
+
+
+#ssh root@fe80::ba27:ebff:fe5d:e6bf%3
